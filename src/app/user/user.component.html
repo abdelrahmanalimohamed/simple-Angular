@@ -1,0 +1,78 @@
+
+<form class="form-horizontal">
+    <div class=“form-group”>
+      <label class=“control-label col-sm-2” for="pwd">Name of User :</label>
+      <div class=“col-sm-10”>
+        <input type=“text” class=“form-control” id=“txtProductName” formControlName=“product_name”
+          placeholder=
+          "Name of Product">
+      </div>
+    </div>
+    <div class=“form-group”>
+      <label class=“control-label col-sm-2” for=“pwd”>Cost of Product :</label>
+      <div class=“col-sm-10”>
+        <input type=“text” class=“form-control” id=“txtProductCost” formControlName=“cost” placeholder=“Cost of Product”>
+      </div>
+    </div>
+    <div class=“form-group”>
+      <label class=“control-label col-sm-2” for=“pwd”>Product Description :</label>
+      <div class=“col-sm-10”>
+        <input type=“text” class=“form-control” id=“txtProductDescription” formControlName=“product_desc”
+          placeholder=“Product Description”>
+      </div>
+    </div>
+    <div class=“form-group”>
+      <label class=“control-label col-sm-2” for=“pwd”># of Stock Available :</label>
+      <div class=“col-sm-2”>
+        <input type=“text” class=“form-control” id=“txtStock” formControlName=“stcok” placeholder=“Stock Available”>
+      </div>
+    </div>
+    <div class=“form-group”>
+   
+      <label class=“control-label col-sm-2” for=“pwd”>Product Category :</label>
+      <div class=“col-sm-10”>
+        <select formControlName=“product_category” [(ngModel)]=‘prodCategory’>
+          <option value=“0”>—Select–</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Grocery</option>
+          <option>Home Appainces</option>
+          <option>Health and Beauty</option>
+        </select>
+      </div>
+    </div>
+    <div class=“form-group”>
+      <div class=“col-sm-offset-2 col-sm-10”>
+        <!-- <button type=“submit” class=“btn btn-default” (click)=“PostProduct(productForm.value)”>Submit</button>
+        <button type=“submit” class=“btn btn-default” (click)=“UpdateProduct(productForm.value)”>Update</button> -->
+      </div>
+    </div>
+    <div>
+      <div class=“alert alert-info”><b>Product List</b></div>
+      <div class=“table-responsive”>
+        <table class=“table”>
+   
+          <tr>
+            <th>Product Name</th>
+            <th>Cost</th>
+            <th># of Stock</th>
+            <th>Category</th>
+            <th>Action</th>
+          </tr>
+   
+          <tr *ngFor="let prd of ProductList | async">
+            <td>{{prd.product_name}}</td>
+            <td>{{prd.cost}}</td>
+            <td>{{prd.stcok}}</td>
+            <td>{{prd.product_category}}</td>
+            <td><button type=“button” matTooltip=“Click Edit Button” (click)=“ProductDetailsToEdit(prd.id)”>Edit</button>
+              |
+              <button type=“button” matTooltip=“Click Delete Button” (click)=“DeleteProduct(prd.id)”>Delete</button>
+   
+            </td>
+          </tr>
+   
+        </table>
+      </div>
+    </div>
+  </form>
