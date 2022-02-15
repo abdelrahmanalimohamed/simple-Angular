@@ -1,6 +1,6 @@
 export class User {
-    ID!: string;  
-    Nam!: string;  
+    id!: string;  
+    name!: string;  
     
 
 }

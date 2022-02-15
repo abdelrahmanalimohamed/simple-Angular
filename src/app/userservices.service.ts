@@ -8,7 +8,7 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class UserservicesService {
-  url = 'https://localhost:44375/api/';
+  url = 'https://localhost:44375/api';
   constructor(private http: HttpClient) { }
 
   getallUsers() : Observable<User[]>{

@@ -17,6 +17,7 @@ export class UserComponent implements OnInit {
   constructor(private formbuilder: FormBuilder , private httpclient: HttpClient , private userservices: UserservicesService) { }
 
   ngOnInit(): void {
+    this.getUserList();
   }
 
   getUserList(){
