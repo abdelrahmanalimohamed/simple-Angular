@@ -31,16 +31,16 @@ export class UserComponent implements OnInit {
     console.log(this.user);
   }
 
-  deleteuser(id: string){
-    this.userservices.deleteuser(id).subscribe();
-    ///console.log(this.stringnum);
-  }
-
-  // deleteuser(id:string){
-  //   this.userservices.deleteuser(id).subscribe(res => {
-  //     console.log(res);
-  //   })
+  // deleteuser(id: string){
+  //   this.userservices.deleteuser(id).subscribe();
+  //   ///console.log(this.stringnum);
   // }
+
+  deleteuser(id:string){
+    this.userservices.deleteuser(id).subscribe(res => {
+      console.log(res);
+    })
+  }
     
 
 
