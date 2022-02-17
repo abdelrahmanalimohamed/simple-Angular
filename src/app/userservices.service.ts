@@ -30,9 +30,8 @@ export class UserservicesService {
     return this.http.put<User>(this.url + '/updateuser/'+ 
     id, name,  httpOptions);  
   }
-  deleteuser(userid: string): Observable<number> {  
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
-    return this.http.delete<number>(this.url + '/deleteuser/' + userid,  
- httpOptions);  
+  deleteuser(id: string | number) {  
+   // const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
+    return this.http.delete<User>(this.url + '/deleteuser/' + id);  
   }    
 }

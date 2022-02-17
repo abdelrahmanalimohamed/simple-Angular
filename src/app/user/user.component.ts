@@ -13,6 +13,8 @@ import { UserservicesService } from '../userservices.service';
 export class UserComponent implements OnInit {
 
   Users: Observable<User[]> | undefined;
+  user!: Observable<User>;
+  stringnum : any;
 
   constructor(private formbuilder: FormBuilder , private httpclient: HttpClient , private userservices: UserservicesService) { }
 
@@ -23,5 +25,24 @@ export class UserComponent implements OnInit {
   getUserList(){
     this.Users = this.userservices.getallUsers();
   }
+
+  userdetails(ID: string){
+    this.user = this.userservices.getsingleuser(ID);
+    console.log(this.user);
+  }
+
+  deleteuser(id: string){
+    this.userservices.deleteuser(id).subscribe();
+    ///console.log(this.stringnum);
+  }
+
+  // deleteuser(id:string){
+  //   this.userservices.deleteuser(id).subscribe(res => {
+  //     console.log(res);
+  //   })
+  // }
+    
+
+
 
 }
